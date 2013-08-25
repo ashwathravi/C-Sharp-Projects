@@ -117,7 +117,7 @@ namespace SysBio.dataStructures
 		/// <param name="name">Name of node to locate</param>
 		/// <returns>Returns null if it fails to find the node, else returns reference to node</returns>
 		public TTreeNode findSymbol (string name) {
-              TTreeNode np = root;
+              var np = root;
               int cmp;
               while (np != null) {
                     cmp = String.Compare (name, np.name);
@@ -140,7 +140,7 @@ namespace SysBio.dataStructures
 		  else {
 			  // If we find a node with the same name then it's 
 			  // a duplicate and we can't continue
-			  int comparison = String.Compare (node.name, tree.name);
+			  var comparison = String.Compare (node.name, tree.name);
 			  if (comparison == 0) 
 				  throw new Exception ();
              
@@ -161,7 +161,7 @@ namespace SysBio.dataStructures
 		/// <returns> Returns reference to the new node is the node was inserted.
 		/// If a duplicate node (same name was located then returns null</returns>
 		public TTreeNode insert (string name, double d) {
-            TTreeNode node = new TTreeNode(name, d);
+            var node = new TTreeNode(name, d);
 			try {  
 				if (root == null) 
 					root = node;
@@ -177,7 +177,7 @@ namespace SysBio.dataStructures
 		// Searches for a node with name key, name. If found it returns a reference
 		// to the node and to thenodes parent. Else returns null.
 		private TTreeNode findParent (string name, ref TTreeNode parent) {
-			TTreeNode np = root;
+			var np = root;
 			parent = null;
 			int cmp;
 			while (np != null) {
@@ -231,7 +231,7 @@ namespace SysBio.dataStructures
 		public void delete (string key) {
 			TTreeNode parent = null;
 			// First find the node to delete and its parent
-			TTreeNode nodeToDelete = findParent (key, ref parent);
+			var nodeToDelete = findParent (key, ref parent);
 			if (nodeToDelete == null) 
 				throw new Exception ("Unable to delete node: " + key.ToString());  // can't find node, then say so 
 			
@@ -295,9 +295,9 @@ namespace SysBio.dataStructures
 			// Both children have nodes, therefore find the successor, 
 			// replace deleted node with successor and remove successor
 			// The parent argument becomes the parent of the successor
-			TTreeNode successor = findSuccessor (nodeToDelete, ref parent);
+			var successor = findSuccessor (nodeToDelete, ref parent);
 			// Make a copy of the successor node
-			TTreeNode tmp = new TTreeNode (successor.name, successor.value);
+			var tmp = new TTreeNode (successor.name, successor.value);
 			// Find out which side the successor parent is pointing to the
 			// successor and remove the successor
 			if (parent.left == successor)

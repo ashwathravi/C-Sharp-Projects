@@ -9,10 +9,10 @@
                 return unsorted;
             }
 
-            for (int i = 0; i < unsorted.Length; i++)
+            for (var i = 0; i < unsorted.Length; i++)
             {
                 var smallest = i;
-                for (int j = i + 1; j < unsorted.Length; j++)
+                for (var j = i + 1; j < unsorted.Length; j++)
                 {
                     if (unsorted[smallest] > unsorted[j])
                     {

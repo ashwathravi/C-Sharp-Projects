@@ -8,7 +8,7 @@
 
             for (i = 1; i < unsorted.Length; i++)
             {
-                int value = unsorted[i];
+                var value = unsorted[i];
                 j = i - 1;
 
                 while ((j >= 0) && (unsorted[j].CompareTo(value) > 0))
